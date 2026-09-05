@@ -1,0 +1,58 @@
+<section class="relative flex min-h-screen flex-col items-center justify-center overflow-hidden pt-16 text-[#e7e4dc]" style="background-color: #0a0c0f;">
+
+  <!-- Ambient backdrop: layered glow + faint structural lines -->
+  <div
+    class="pointer-events-none absolute inset-0 z-0"
+    style="background:
+      radial-gradient(ellipse 900px 600px at 50% 20%, rgba(212, 161, 61, 0.08), transparent 60%),
+      radial-gradient(ellipse 1200px 800px at 80% 90%, rgba(58, 65, 73, 0.25), transparent 60%),
+      #0a0c0f;"
+  >
+    <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" class="absolute inset-0 h-full w-full opacity-50">
+      <line x1="0" y1="150" x2="1600" y2="60" stroke="#3a4149" stroke-width="1" opacity="0.35"/>
+      <line x1="0" y1="800" x2="1600" y2="760" stroke="#3a4149" stroke-width="1" opacity="0.25"/>
+      <circle cx="1250" cy="180" r="1.5" fill="#d4a13d" opacity="0.6"/>
+      <circle cx="310" cy="650" r="1.5" fill="#d4a13d" opacity="0.4"/>
+      <circle cx="1400" cy="700" r="1" fill="#e7e4dc" opacity="0.3"/>
+      <circle cx="150" cy="220" r="1" fill="#e7e4dc" opacity="0.3"/>
+    </svg>
+  </div>
+
+  <!-- Corner frame brackets -->
+  <div class="pointer-events-none absolute left-7 top-[92px] z-10 h-16 w-16">
+    <svg viewBox="0 0 64 64" class="h-full w-full"><path d="M2 24 V2 H24" stroke="#6b7480" stroke-width="1" fill="none"/></svg>
+  </div>
+  <div class="pointer-events-none absolute right-7 top-[92px] z-10 h-16 w-16 -scale-x-100">
+    <svg viewBox="0 0 64 64" class="h-full w-full"><path d="M2 24 V2 H24" stroke="#6b7480" stroke-width="1" fill="none"/></svg>
+  </div>
+  <div class="pointer-events-none absolute bottom-7 left-7 z-10 h-16 w-16 -scale-y-100">
+    <svg viewBox="0 0 64 64" class="h-full w-full"><path d="M2 24 V2 H24" stroke="#6b7480" stroke-width="1" fill="none"/></svg>
+  </div>
+  <div class="pointer-events-none absolute bottom-7 right-7 z-10 h-16 w-16 scale-[-1]">
+    <svg viewBox="0 0 64 64" class="h-full w-full"><path d="M2 24 V2 H24" stroke="#6b7480" stroke-width="1" fill="none"/></svg>
+  </div>
+
+  <!-- Main content -->
+  <div class="relative z-[1] max-w-3xl px-8 text-center">
+    <div class="mb-7 font-['Oswald'] text-xs uppercase tracking-[0.4em] text-[#d4a13d] sm:text-sm">
+      Hello there
+    </div>
+
+    <h1 class="font-['Oswald'] text-5xl font-semibold uppercase leading-none tracking-wide text-[#e7e4dc] [text-shadow:0_0_40px_rgba(212,161,61,0.15)] sm:text-6xl md:text-7xl">
+      I'm Kevin Khuu
+    </h1>
+
+    <div class="relative mx-auto my-9 h-px w-32" style="background: linear-gradient(90deg, transparent, #7a6230, transparent);">
+      <span class="absolute left-1/2 top-1/2 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rotate-45" style="background-color: #d4a13d;"></span>
+    </div>
+
+    <div class="flex h-10 items-center justify-center overflow-hidden">
+      <span
+        class="font-['Oswald'] text-base tracking-wide text-[#6b7480] transition-all duration-500 ease-in-out sm:text-lg"
+        [class.opacity-0]="isLeaving()"
+        [class.-translate-y-3]="isLeaving()"
+      >{{ currentPhrase }}</span>
+    </div>
+  </div>
+
+</section>

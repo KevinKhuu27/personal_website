@@ -1,0 +1,57 @@
+<nav
+  class="fixed top-0 inset-x-0 z-50 backdrop-blur border-b"
+  style="background-color: rgba(10, 12, 15, 0.85); border-color: rgba(58, 65, 73, 0.4);"
+>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 items-center justify-between">
+      <span class="font-['Oswald'] font-semibold uppercase tracking-[0.15em] text-[#e7e4dc]">
+        Kevin Khuu
+      </span>
+
+      <div class="hidden sm:flex sm:space-x-8">
+        <a
+          href="#about"
+          class="font-['Oswald'] text-sm uppercase tracking-[0.15em] text-[#6b7480] transition-colors px-3 py-2"
+          style="color: #6b7480;"
+          onmouseover="this.style.color='#d4a13d'"
+          onmouseout="this.style.color='#6b7480'"
+        >About</a>
+        <a
+          href="#projects"
+          class="font-['Oswald'] text-sm uppercase tracking-[0.15em] text-[#6b7480] transition-colors px-3 py-2"
+          style="color: #6b7480;"
+          onmouseover="this.style.color='#d4a13d'"
+          onmouseout="this.style.color='#6b7480'"
+        >Projects</a>
+      </div>
+
+      <button
+        (click)="toggleMenu()"
+        class="sm:hidden p-2 transition-colors"
+        style="color: #6b7480;"
+        onmouseover="this.style.color='#d4a13d'"
+        onmouseout="this.style.color='#6b7480'"
+      >
+        <span class="sr-only">Toggle menu</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path stroke-linecap="round" d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  @if (mobileMenuOpen()) {
+    <div class="sm:hidden px-4 pb-4 space-y-1 border-t" style="border-color: rgba(58, 65, 73, 0.4);">
+      <a
+        href="#about"
+        class="block font-['Oswald'] text-sm uppercase tracking-[0.15em] px-3 py-2"
+        style="color: #6b7480;"
+      >About</a>
+      <a
+        href="#projects"
+        class="block font-['Oswald'] text-sm uppercase tracking-[0.15em] px-3 py-2"
+        style="color: #6b7480;"
+      >Projects</a>
+    </div>
+  }
+</nav>
