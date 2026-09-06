@@ -2,97 +2,70 @@
 
   <div class="mx-auto max-w-5xl">
 
-    <h2 class="mb-16 text-center font-['Oswald'] text-4xl font-semibold uppercase tracking-wide sm:text-5xl" style="color: #e7e4dc;">
+    <h2 class="mb-16 text-center font-['Oswald'] text-4xl font-semibold uppercase tracking-wide sm:text-5xl"
+      style="color: #e7e4dc;">
       Projects
     </h2>
 
     <div class="grid grid-cols-2 gap-8 sm:grid-cols-1">
       @for (project of projects; track project.title) {
-        <button
-          (click)="openProject(project)"
-          class="group flex flex-col items-center gap-4 text-center"
-        >
-          <div class="aspect-video w-full overflow-hidden border transition-colors" style="border-color: #3a4149;">
-            <img
-              [src]="project.gifUrl"
-              [alt]="project.title"
-              class="h-full w-full object-cover"
-            />
-          </div>
-
-          <h3 class="font-['Oswald'] text-lg font-semibold uppercase tracking-wide transition-colors" style="color: #e7e4dc;">
-            {{ project.title }}
-          </h3>
-        </button>
-      }
-    </div>
-
-  </div>
-
-  <!-- Modal -->
-  @if (selectedProject(); as project) {
-    <div
-      class="fixed inset-0 z-50 flex items-center justify-center p-6"
-      style="background-color: rgba(10, 12, 15, 0.85);"
-      (click)="closeProject()"
-    >
-      <div
-        class="relative max-w-3xl w-full border p-8"
-        style="background-color: #0a0c0f; border-color: #3a4149;"
-        (click)="$event.stopPropagation()"
-      >
-        <div class="mb-6 aspect-video w-full overflow-hidden border" style="border-color: #3a4149;">
-          <img
-            [src]="project.gifUrl"
-            [alt]="project.title"
-            class="h-full w-full object-cover"
-          />
+      <button (click)="openProject(project)" (mouseenter)="onCardEnter($event)" (mouseleave)="onCardLeave($event)"
+        class="group flex flex-col items-center gap-4 text-center">
+        <div class="gif-frame aspect-video w-full overflow-hidden border" style="border-color: #3a4149;">
+          <img [src]="project.gifUrl" [alt]="project.title" class="h-full w-full object-cover" />
         </div>
 
-        <h3 class="mb-4 font-['Oswald'] text-2xl font-semibold uppercase tracking-wide" style="color: #e7e4dc;">
+        <h3 class="font-['Oswald'] text-lg font-semibold uppercase tracking-wide transition-colors"
+          style="color: #e7e4dc;">
           {{ project.title }}
         </h3>
-
-        <p class="mb-6 font-['Inter'] text-base leading-relaxed" style="color: #6b7480;">
-          {{ project.description }}
-        </p>
-
-        <div class="mb-8 flex flex-wrap gap-2">
-          @for (tag of project.tech; track tag) {
-            <span
-              class="rounded-full border px-3 py-1 font-['Oswald'] text-xs uppercase tracking-wide"
-              style="border-color: #3a4149; color: #d4a13d;"
-            >
-              {{ tag }}
-            </span>
-          }
-        </div>
-
-        <div class="flex gap-6">
-          @if (project.demoUrl) {
-            <a
-              [href]="project.demoUrl"
-              target="_blank"
-              rel="noopener"
-              class="font-['Oswald'] text-sm uppercase tracking-wide transition-colors"
-              style="color: #d4a13d;"
-            >
-              Demo →
-            </a>
-          }
-          @if (project.repoUrl) {
-            <a
-              [href]="project.repoUrl"
-              target="_blank"
-              rel="noopener"
-              class="font-['Oswald'] text-sm uppercase tracking-wide transition-colors"
-              style="color: #d4a13d;"
-            >
-              Code →
-            </a>
-          }
-        </div>
-      </div>
+      </button>
+      }
     </div>
-  }
+  </div>
+  <!-- Modal (always in DOM, visibility controlled by Motion) -->
+  <div #modalBackdrop class="fixed inset-0 z-50 flex items-center justify-center p-6 opacity-0 pointer-events-none"
+    style="background-color: rgba(10, 12, 15, 0.85);" (click)="closeProject()">
+    <div #modalBox class="relative max-w-3xl w-full border p-8"
+      style="background-color: #0a0c0f; border-color: #3a4149;" (click)="$event.stopPropagation()">
+      @if (selectedProject(); as project) {
+      <div class="mb-6 aspect-video w-full overflow-hidden border" style="border-color: #3a4149;">
+        <img [src]="project.gifUrl" [alt]="project.title" class="h-full w-full object-cover" />
+      </div>
+
+      <h3 class="mb-4 font-['Oswald'] text-2xl font-semibold uppercase tracking-wide" style="color: #e7e4dc;">
+        {{ project.title }}
+      </h3>
+
+      <p class="mb-6 font-['Inter'] text-base leading-relaxed" style="color: #6b7480;">
+        {{ project.description }}
+      </p>
+
+      <div class="mb-8 flex flex-wrap gap-2">
+        @for (tag of project.tech; track tag) {
+        <span class="rounded-full border px-3 py-1 font-['Oswald'] text-xs uppercase tracking-wide"
+          style="border-color: #3a4149; color: #d4a13d;">
+          {{ tag }}
+        </span>
+        }
+      </div>
+
+      <div class="flex gap-6">
+        @if (project.demoUrl) {
+        <a [href]="project.demoUrl" target="_blank" rel="noopener"
+          class="font-['Oswald'] text-sm uppercase tracking-wide transition-colors" style="color: #d4a13d;">
+          Demo →
+        </a>
+        }
+        @if (project.repoUrl) {
+        <a [href]="project.repoUrl" target="_blank" rel="noopener"
+          class="font-['Oswald'] text-sm uppercase tracking-wide transition-colors" style="color: #d4a13d;">
+          Code →
+        </a>
+        }
+      </div>
+      }
+    </div>
+  </div>
+
 </section>
