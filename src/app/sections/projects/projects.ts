@@ -3,7 +3,8 @@ import { animate } from 'motion';
 
 interface Project {
   title: string;
-  gifUrl: string;
+  imageUrl: string;
+  gifUrl?: string;
   description: string;
   tech: string[];
   demoUrl?: string;
@@ -22,11 +23,20 @@ export class Projects {
   projects: Project[] = [
     {
       title: 'Club Management App',
+      imageUrl: '/clubmanagementapp.PNG',
       gifUrl: '/project4.gif',
-      description: 'An application used to manage a Salsa Club built using front-end and back-end technology. Includes the use of forms, databases, and password authentication.',
+      description: 'A web app for managing a Salsa dance club, where coaches can add and manage classes, and users can search for and enroll in them.',
       tech: ['HTML', 'CSS', 'JavaScript', 'Python', 'Firebase'],
       demoUrl: 'https://cps-406-shops--salsa-studio.firebaseapp.com/',
       repoUrl: 'https://github.com/TomorrowInka/CPS406_iteration_2_41'
+    },
+    {
+      title: 'Flight Booking System',
+      imageUrl: '/flightbookingsystem.PNG',
+      description: 'A full-stack flight booking app where admins add flights, users search and pick seats via a seat map, and confirm bookings by submitting their info.',
+      tech: ['Java', 'Spring Boot', 'React', 'AWS'],
+      demoUrl: 'http://f2025-cps731-group5.duckdns.org/',
+      repoUrl: 'https://github.com/longrict/cps731'
     }
   ];
 
