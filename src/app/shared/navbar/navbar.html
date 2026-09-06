@@ -10,15 +10,22 @@
 
       <div class="hidden sm:flex sm:space-x-8">
         <a
+          href="#landing"
+          class="font-['Oswald'] text-sm uppercase tracking-[0.15em] transition-colors px-3 py-2"
+          style="color: #6b7480;"
+          onmouseover="this.style.color='#d4a13d'"
+          onmouseout="this.style.color='#6b7480'"
+        >Home</a>
+        <a
           href="#about"
-          class="font-['Oswald'] text-sm uppercase tracking-[0.15em] text-[#6b7480] transition-colors px-3 py-2"
+          class="font-['Oswald'] text-sm uppercase tracking-[0.15em] transition-colors px-3 py-2"
           style="color: #6b7480;"
           onmouseover="this.style.color='#d4a13d'"
           onmouseout="this.style.color='#6b7480'"
         >About</a>
         <a
           href="#projects"
-          class="font-['Oswald'] text-sm uppercase tracking-[0.15em] text-[#6b7480] transition-colors px-3 py-2"
+          class="font-['Oswald'] text-sm uppercase tracking-[0.15em] transition-colors px-3 py-2"
           style="color: #6b7480;"
           onmouseover="this.style.color='#d4a13d'"
           onmouseout="this.style.color='#6b7480'"
@@ -42,16 +49,9 @@
 
   @if (mobileMenuOpen()) {
     <div class="sm:hidden px-4 pb-4 space-y-1 border-t" style="border-color: rgba(58, 65, 73, 0.4);">
-      <a
-        href="#about"
-        class="block font-['Oswald'] text-sm uppercase tracking-[0.15em] px-3 py-2"
-        style="color: #6b7480;"
-      >About</a>
-      <a
-        href="#projects"
-        class="block font-['Oswald'] text-sm uppercase tracking-[0.15em] px-3 py-2"
-        style="color: #6b7480;"
-      >Projects</a>
+      <a href="#landing" class="block font-['Oswald'] text-sm uppercase tracking-[0.15em] px-3 py-2" style="color: #6b7480;">Home</a>
+      <a href="#about" class="block font-['Oswald'] text-sm uppercase tracking-[0.15em] px-3 py-2" style="color: #6b7480;">About</a>
+      <a href="#projects" class="block font-['Oswald'] text-sm uppercase tracking-[0.15em] px-3 py-2" style="color: #6b7480;">Projects</a>
     </div>
   }
 </nav>
