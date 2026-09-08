@@ -33,10 +33,19 @@ export class Projects {
     {
       title: 'Flight Booking System',
       imageUrl: '/flightbookingsystem.PNG',
-      description: 'A full-stack flight booking app where admins add flights, users search and pick seats via a seat map, and confirm bookings by submitting their info.',
+      description: 'A flight booking app where admins add flights, users search and pick seats via a seat map, and confirm bookings by submitting their info.',
       tech: ['Java', 'Spring Boot', 'React', 'AWS'],
       demoUrl: 'http://f2025-cps731-group5.duckdns.org/',
       repoUrl: 'https://github.com/longrict/cps731'
+    },
+    {
+      title: 'Grade Calculator',
+      imageUrl: '/gradecalculator.PNG',
+      gifUrl: '/gradecalculator.gif',
+      description: 'A full-stack application for tracking assignments, managing courses, and calculating grades.',
+      tech: ['Java', 'Spring Boot', 'React', 'Supabase'],
+      demoUrl: 'https://kevinkhuu27-gradecalculator.vercel.app/',
+      repoUrl: 'https://github.com/KevinKhuu27/azure'
     }
   ];
 

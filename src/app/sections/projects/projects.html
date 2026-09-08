@@ -7,7 +7,7 @@
       Projects
     </h2>
 
-    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
+    <div class="grid grid-cols-1 gap-8 sm:grid-cols-3">
       @for (project of projects; track project.title) {
       <button (click)="openProject(project)" (mouseenter)="onCardEnter($event)" (mouseleave)="onCardLeave($event)"
         class="group flex flex-col items-center gap-4 text-center">
